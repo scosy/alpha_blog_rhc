@@ -16,3 +16,34 @@ $navbar-default-bg: #212F3D;
 .center {
 	text-align: center;
 }
+
+.jumbotron {
+	background-image: asset-url('heaven.jpg');
+	background-size: cover;
+	height: 550px;
+}
+
+.jumbotron h1 {
+	color: white
+}
+
+footer {
+	margin-top: 45px;
+	padding-top: 5px;
+	border-top: 1px solid #bfbfbf;
+	color: #808080;
+}
+footer small {
+	float: left;
+}
+
+footer ul {
+	float: right;
+	list-style: none;
+}
+
+footer ul li {
+	float: left;
+	margin-left: 15px;
+
+}
