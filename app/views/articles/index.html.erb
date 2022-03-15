@@ -10,7 +10,7 @@
 			<td><%= article.description%></td>
 			<td><%= link_to "Éditer", edit_article_path(article) %></td>
 			<td><%= link_to "Afficher", article_path(article) %></td>
-			<td><%= link_to "Supprimer", article, data: {"turbo-method": :delete } %></td>
+			<td><%= button_to "Supprimer", article, method: :delete%></td>
 		</tr>
 	<% end %>
 </table>

@@ -1,34 +1,28 @@
-	<% if @article.errors.any? %>
-		<h2>Erreur</h2>
-		<ul>
-			<% @article.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-			<% end %>
-		</ul>
-	<% end %>
+<%= render "shared/errors", obj: @article %>
+
 <div class="row">
 	<%= form_for(@article, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-		<div class="form-group">
-			<div class="col-sm-2 control-label">
+	<div class="form-group">
+		<div class="col-sm-2 control-label">
 			<%= f.label :title %> <br>
-			</div>
-			<div class="col-sm-8">
+		</div>
+		<div class="col-sm-8">
 			<%= f.text_field :title, class: "form-control", placeholder: "Titre de l'article" %>
-			</div>
 		</div>
-		<div class="form-group">
-			<div class="col-sm-2 control-label">
+	</div>
+	<div class="form-group">
+		<div class="col-sm-2 control-label">
 			<%= f.label :description %> <br>
-			</div>
-			<div class="col-sm-8">
+		</div>
+		<div class="col-sm-8">
 			<%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Description de l'article" %>
-			</div>
 		</div>
-		<div class="form-group">
-    	<div class="col-sm-offset-2 col-sm-10">
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
 			<%= f.submit class: "btn btn-default" %>
-			</div>
 		</div>
+	</div>
 
 	<% end %>
 </div>
