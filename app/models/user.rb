@@ -1,8 +1,13 @@
 class User < ActiveRecord::Base
+	has_many :articles
 	has_many :comments
+
+	before_save { self.email.downcase! }
+
 	validates :username, presence: true,
 						uniqueness: { case_sentitive: false },
 						length: {minimum: 3, maximum: 25}
+
 	VALID_EMAIL_REGEX = /.+\@.+\..+/
 	validates :email, presence: true,
 										uniqueness: { case_sentitive: false },
