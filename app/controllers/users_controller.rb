@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    @user = User.find(params[:id])
   end
 
   # GET /users/new
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Utilisateur #{@user.username} créé avec succès !"
+      redirect_to articles_path
     else
       render 'new'
     end
