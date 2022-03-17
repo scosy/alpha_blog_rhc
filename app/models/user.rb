@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :articles
-	has_many :comments
+	has_many :articles, dependent: :destroy
 
 	before_save { self.email.downcase! }
 
