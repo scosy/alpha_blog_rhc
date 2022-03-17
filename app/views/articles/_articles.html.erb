@@ -12,8 +12,10 @@
 			<td><small>Créé par <strong><%= article.user.username if article.user %></strong> 
 				il y a <%= time_ago_in_words(article.created_at) %>, 
 				dernière mise à jour il y a <%= time_ago_in_words(article.updated_at) %>.</td></small>
-			<td><%= link_to "Éditer", edit_article_path(article), class: "btn btn-xs btn-primary" %></td>
-			<td><%= button_to "Supprimer", article, method: :delete, class: "btn btn-xs btn-danger"%></td>
+			<% if logged_in? && current_user == article.user %>
+				<td><%= link_to "Éditer", edit_article_path(article), class: "btn btn-xs btn-primary" %></td>
+				<td><%= button_to "Supprimer", article, method: :delete, class: "btn btn-xs btn-danger"%></td>
+			<% end %>
 		</tr>
 	<% end %>
 </table>
