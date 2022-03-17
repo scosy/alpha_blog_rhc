@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
 	def update
 		if @article.update(article_params)
 			redirect_to article_path(@article)
-			flash[:success] = "Article modifié"
+			flash[:success] = "Article modifié" 
 		else
 			render :edit, status: :see_other
 		end
