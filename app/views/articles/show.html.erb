@@ -5,7 +5,7 @@
 			<%= @article.description %>
 			<% if @article.user %>
 			<div class="articles-actions">
-					<%= gravatar_for @article.user, size: 	 %><br>
+					<%= gravatar_for @article.user, size: 50 %><br>
 				<small>Article créé par <%= @article.user.username %></small>
 			</div>
 			<% end %>
