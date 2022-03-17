@@ -3,6 +3,12 @@
 		<h2><%= @article.title %></h2>
 		<div class="well col-xs-6">
 			<%= @article.description %>
+			<% if @article.user %>
+			<div class="articles-actions">
+					<%= gravatar_for @article.user, size: 	 %><br>
+				<small>Article créé par <%= @article.user.username %></small>
+			</div>
+			<% end %>
 			<div class="articles-actions">
 				<%= link_to "Éditer", edit_article_path(@article), class: "btn btn-xs btn-success" %>
 				<%= button_to "Supprimer", article_path(@article), method: :delete, class: "btn btn-xs btn-danger" %>
