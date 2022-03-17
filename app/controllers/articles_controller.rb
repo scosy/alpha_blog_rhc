@@ -37,7 +37,7 @@ class ArticlesController < ApplicationController
 
 	def destroy
 		@article.destroy
-		flash[:danger] = "Article Supprimé"
+		flash[:success] = "Article Supprimé"
 		redirect_to articles_path
 	end
 
@@ -56,7 +56,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def require_same_user
-		if current_user != @article.user
+		if current_user != @article.user && !current_user.admin?
 			flash[:danger] = "Mauvais utilisateur"
 			redirect_to root_path
 		end

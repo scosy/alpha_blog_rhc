@@ -10,7 +10,7 @@
 			</div>
 			<% end %>
 			<div class="articles-actions">
-			<% if logged_in? && current_user == @article.user %>
+			<% if logged_in? && (current_user == @article.user || current_user.admin?) %>
 				<%= link_to "Éditer", edit_article_path(@article), class: "btn btn-xs btn-success" %>
 				<%= button_to "Supprimer", article_path(@article), method: :delete, class: "btn btn-xs btn-danger" %>
 			<% end %>
